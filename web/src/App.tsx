@@ -1,14 +1,13 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 import * as Dialog from '@radix-ui/react-dialog';
-import { CreateAdBanner } from "./components/CreateAdBanner";
-import { GameBanner } from "./components/GameBanner";
+import { CreateAdBanner } from './components/CreateAdBanner';
+import { GameBanner } from './components/GameBanner';
 
 import './styles/main.css';
 
 import logoImg from './assets/logo-nlw-esports.svg';
-import { CreateAdModal } from "./components/CreateAdModal";
-import axios from "axios";
-
+import { CreateAdModal } from './components/CreateAdModal';
+import axios from 'axios';
 
 interface Game {
   id: string;
@@ -24,6 +23,7 @@ function App() {
 
   useEffect(() => {
     axios('http://localhost:3333/games').then(response => {
+      console.log(response.data);
       setGames(response.data);
     });
   }, []);
@@ -55,7 +55,7 @@ function App() {
         <CreateAdModal />
       </Dialog.Root>
     </div>
-  )
+  );
 }
 
 export default App
